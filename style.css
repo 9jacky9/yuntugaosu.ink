@@ -1,0 +1,920 @@
+/* ==========================================================================
+   yuntugaosu.ink - 新中式墨韵流风 (Eastern Flowing Ink & Calligraphy)
+   Extreme Performance Optimized - Pure CSS - Zero External Dependencies
+   ========================================================================== */
+
+:root {
+  --ink-black: #121214;
+  --ink-charcoal: #1c1c20;
+  --ink-card-bg: #222227;
+  --ink-card-hover: #292930;
+  --ink-rice-paper: #faf8f5;
+  --ink-cinnabar: #c23a2b;
+  --ink-cinnabar-hover: #db4434;
+  --ink-gold: #c5a059;
+  --ink-gold-soft: rgba(197, 160, 89, 0.2);
+  --ink-smoke: #8a8886;
+  --ink-border: rgba(197, 160, 89, 0.25);
+  --ink-border-subtle: rgba(255, 255, 255, 0.07);
+  --font-ink: "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", -apple-system, sans-serif;
+  --font-serif: "Songti SC", "Noto Serif SC", "SimSun", serif, -apple-system;
+  --radius-ink: 6px;
+  --transition-smooth: 0.24s cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+  background-color: var(--ink-black);
+  color: var(--ink-rice-paper);
+}
+
+body {
+  font-family: var(--font-ink);
+  line-height: 1.7;
+  background-color: var(--ink-black);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Background Calligraphy Wash Aesthetics */
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: 
+    radial-gradient(circle at 15% 15%, rgba(194, 58, 43, 0.08) 0%, transparent 45%),
+    radial-gradient(circle at 85% 85%, rgba(197, 160, 89, 0.06) 0%, transparent 50%),
+    linear-gradient(180deg, rgba(18, 18, 20, 0.95) 0%, #121214 100%);
+  pointer-events: none;
+  z-index: -1;
+}
+
+.container-ink {
+  width: 100%;
+  max-width: 1140px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+a, a:visited {
+  color: var(--ink-gold);
+  text-decoration: none;
+  transition: all var(--transition-smooth);
+}
+
+a:hover, a:focus {
+  color: #db4434;
+  text-decoration: underline;
+}
+
+/* Specific button overrides */
+.btn-cinnabar, .btn-cinnabar:visited {
+  color: #ffffff !important;
+  text-decoration: none !important;
+}
+
+.btn-ink-recommend, .btn-ink-recommend:visited {
+  color: var(--ink-gold) !important;
+  text-decoration: none !important;
+}
+
+.ink-subpage-body a, .ink-subpage-body a:visited,
+.article-ink-body a, .article-ink-body a:visited {
+  color: var(--ink-gold) !important;
+  text-decoration: underline;
+  font-weight: 600;
+}
+
+.ink-subpage-body a:hover,
+.article-ink-body a:hover {
+  color: var(--ink-cinnabar) !important;
+}
+
+/* Navigation - Ink Pavilion Style */
+.ink-pavilion-nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(18, 18, 20, 0.94);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--ink-border);
+}
+
+.ink-nav-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 72px;
+}
+
+.ink-logo-wrap {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.ink-nav-menu {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  list-style: none;
+}
+
+.ink-nav-menu li a {
+  color: #c9c7c5;
+  font-size: 0.95rem;
+  letter-spacing: 1px;
+  font-family: var(--font-ink);
+}
+
+.ink-nav-menu li a:hover {
+  color: var(--ink-gold);
+}
+
+/* CTA Buttons */
+.btn-cinnabar {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: linear-gradient(135deg, var(--ink-cinnabar) 0%, #9e2317 100%);
+  color: #ffffff;
+  padding: 13px 30px;
+  border-radius: var(--radius-ink);
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 0 4px 18px rgba(194, 58, 43, 0.35);
+  cursor: pointer;
+  transition: all var(--transition-smooth);
+}
+
+.btn-cinnabar:hover {
+  background: linear-gradient(135deg, var(--ink-cinnabar-hover) 0%, var(--ink-cinnabar) 100%);
+  box-shadow: 0 6px 24px rgba(194, 58, 43, 0.5);
+  transform: translateY(-2px);
+  color: #ffffff;
+}
+
+.btn-ink-recommend {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: rgba(197, 160, 89, 0.12);
+  color: var(--ink-gold);
+  padding: 13px 26px;
+  border-radius: var(--radius-ink);
+  font-size: 0.96rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+  border: 1px solid var(--ink-border);
+  transition: all var(--transition-smooth);
+}
+
+.btn-ink-recommend:hover {
+  background: rgba(197, 160, 89, 0.22);
+  border-color: var(--ink-gold);
+  color: #ffffff;
+  transform: translateY(-2px);
+}
+
+.btn-ink-nav {
+  padding: 8px 20px;
+  font-size: 0.88rem;
+}
+
+/* Hero Section (Scroll Prologue) */
+.scroll-prologue-hero {
+  padding: 80px 0 64px;
+  text-align: center;
+  position: relative;
+}
+
+.hero-seal-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(197, 160, 89, 0.1);
+  border: 1px solid var(--ink-border);
+  color: var(--ink-gold);
+  padding: 6px 18px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  letter-spacing: 2px;
+  margin-bottom: 24px;
+}
+
+.ink-hero-heading {
+  font-family: var(--font-serif);
+  font-size: 3.2rem;
+  font-weight: 900;
+  line-height: 1.25;
+  margin-bottom: 24px;
+  letter-spacing: 2px;
+  color: #ffffff;
+  text-shadow: 0 2px 20px rgba(0, 0, 0, 0.8);
+}
+
+.ink-hero-heading em {
+  font-style: normal;
+  color: var(--ink-cinnabar);
+}
+
+.ink-hero-subtext {
+  font-size: 1.15rem;
+  color: #b5b3af;
+  max-width: 720px;
+  margin: 0 auto 40px;
+  line-height: 1.85;
+}
+
+.ink-hero-actions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 18px;
+  margin-bottom: 48px;
+}
+
+/* Scroll Parchment Preview Banner */
+.ink-parchment-stats {
+  background: var(--ink-charcoal);
+  border: 1px solid var(--ink-border);
+  border-radius: var(--radius-ink);
+  padding: 24px 32px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.5);
+  margin-top: 10px;
+}
+
+.parchment-stat-item {
+  text-align: center;
+  position: relative;
+}
+
+.parchment-stat-item:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  top: 15%;
+  height: 70%;
+  width: 1px;
+  background: var(--ink-border);
+}
+
+.parchment-stat-val {
+  font-size: 1.7rem;
+  font-weight: 800;
+  color: var(--ink-gold);
+  font-family: monospace;
+}
+
+.parchment-stat-label {
+  font-size: 0.82rem;
+  color: var(--ink-smoke);
+  margin-top: 6px;
+  letter-spacing: 1px;
+}
+
+/* Sections Common Structure */
+.ink-section-box {
+  padding: 80px 0;
+}
+
+.ink-section-title-wrap {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.ink-section-tag {
+  color: var(--ink-cinnabar);
+  font-size: 0.82rem;
+  letter-spacing: 3px;
+  font-weight: 700;
+  display: block;
+  margin-bottom: 10px;
+}
+
+.ink-section-title {
+  font-family: var(--font-serif);
+  font-size: 2.25rem;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+  color: #ffffff;
+  margin-bottom: 12px;
+}
+
+.ink-section-desc {
+  font-size: 1rem;
+  color: var(--ink-smoke);
+  max-width: 650px;
+  margin: 0 auto;
+}
+
+/* Features Grid (3 Cards - 真正稳固的连接保障) */
+.ink-grid-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+}
+
+.ink-feature-card {
+  background: var(--ink-card-bg);
+  border: 1px solid var(--ink-border);
+  border-radius: var(--radius-ink);
+  padding: 36px 28px;
+  transition: all var(--transition-smooth);
+  position: relative;
+}
+
+.ink-feature-card:hover {
+  background: var(--ink-card-hover);
+  border-color: var(--ink-gold);
+  transform: translateY(-4px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.6);
+}
+
+.ink-icon-badge {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: rgba(197, 160, 89, 0.1);
+  border: 1px solid var(--ink-border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 22px;
+}
+
+.ink-card-title {
+  font-family: var(--font-serif);
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 14px;
+  letter-spacing: 1px;
+}
+
+.ink-card-desc {
+  font-size: 0.92rem;
+  color: #a8a6a2;
+  line-height: 1.75;
+}
+
+/* Streaming & AI Cards (3 Cards) */
+.media-ai-ink-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+}
+
+/* Testimonials (4 Scroll-styled Cards) - BEFORE Pricing */
+.ink-reviews-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+}
+
+.ink-scroll-review-card {
+  background: var(--ink-card-bg);
+  border: 1px solid var(--ink-border-subtle);
+  border-left: 3px solid var(--ink-cinnabar);
+  border-radius: var(--radius-ink);
+  padding: 28px 24px;
+  position: relative;
+}
+
+.review-seal-stamp {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  border: 1px solid var(--ink-cinnabar);
+  color: var(--ink-cinnabar);
+  font-size: 0.72rem;
+  padding: 2px 6px;
+  border-radius: 2px;
+  font-family: var(--font-serif);
+  opacity: 0.85;
+}
+
+.ink-review-text {
+  font-size: 0.95rem;
+  color: #c4c2be;
+  line-height: 1.8;
+  margin-bottom: 20px;
+  font-style: italic;
+}
+
+.ink-review-author {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.author-seal-circle {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: rgba(194, 58, 43, 0.15);
+  border: 1px solid var(--ink-cinnabar);
+  color: var(--ink-cinnabar);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-serif);
+  font-weight: 700;
+  font-size: 0.95rem;
+}
+
+.author-ink-name {
+  font-weight: 700;
+  font-size: 0.94rem;
+  color: #ffffff;
+}
+
+.author-ink-domain {
+  font-size: 0.8rem;
+  color: var(--ink-smoke);
+}
+
+/* Pricing Section (3 Tiers: 月度尝鲜席, 季度精选席, 年度至尊席) */
+.ink-pricing-box {
+  background: #18181c;
+  border-top: 1px solid var(--ink-border);
+  border-bottom: 1px solid var(--ink-border);
+}
+
+.ink-pricing-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 26px;
+  align-items: stretch;
+}
+
+.ink-tier-card {
+  background: var(--ink-card-bg);
+  border: 1px solid var(--ink-border);
+  border-radius: var(--radius-ink);
+  padding: 38px 28px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  transition: all var(--transition-smooth);
+}
+
+.ink-tier-card.top-choice {
+  border-color: var(--ink-gold);
+  box-shadow: 0 8px 30px rgba(197, 160, 89, 0.2);
+  transform: scale(1.02);
+}
+
+.top-choice-flag {
+  position: absolute;
+  top: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: linear-gradient(135deg, var(--ink-gold) 0%, #a47e3b 100%);
+  color: #121214;
+  font-size: 0.76rem;
+  font-weight: 800;
+  padding: 3px 14px;
+  border-radius: 12px;
+  letter-spacing: 1px;
+}
+
+.ink-tier-name {
+  font-family: var(--font-serif);
+  font-size: 1.35rem;
+  font-weight: 700;
+  margin-bottom: 8px;
+  color: #ffffff;
+}
+
+.ink-tier-desc {
+  font-size: 0.86rem;
+  color: var(--ink-smoke);
+  margin-bottom: 22px;
+}
+
+.ink-tier-price {
+  font-size: 2.6rem;
+  font-weight: 800;
+  color: var(--ink-gold);
+  margin-bottom: 26px;
+  font-family: monospace;
+}
+
+.ink-tier-price small {
+  font-size: 0.95rem;
+  color: var(--ink-smoke);
+}
+
+.ink-feature-list {
+  list-style: none;
+  margin-bottom: 32px;
+  flex-grow: 1;
+}
+
+.ink-feature-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.9rem;
+  color: #cfccc8;
+  padding: 9px 0;
+  border-bottom: 1px dashed rgba(255, 255, 255, 0.06);
+}
+
+.ink-feature-item svg {
+  flex-shrink: 0;
+}
+
+.ink-tier-card .btn-cinnabar {
+  width: 100%;
+}
+
+/* FAQ (3 items) */
+.ink-faq-stack {
+  max-width: 840px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.ink-faq-card {
+  background: var(--ink-card-bg);
+  border: 1px solid var(--ink-border);
+  border-radius: var(--radius-ink);
+  padding: 24px 28px;
+}
+
+.ink-faq-q {
+  font-family: var(--font-serif);
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.ink-faq-q-tag {
+  color: var(--ink-gold);
+  font-size: 0.85rem;
+  font-weight: 800;
+  border: 1px solid var(--ink-border);
+  padding: 1px 7px;
+  border-radius: 3px;
+}
+
+.ink-faq-a {
+  font-size: 0.92rem;
+  color: #a8a6a2;
+  line-height: 1.8;
+  padding-left: 36px;
+}
+
+/* Footer (ONLY 4 Titles: 网站地图, 关于我们, 服务条款, 隐私政策) */
+.ink-pavilion-footer {
+  background: #0d0d0f;
+  border-top: 1px solid var(--ink-border);
+  padding: 44px 0 34px;
+  text-align: center;
+}
+
+.ink-footer-nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 38px;
+  list-style: none;
+  margin-bottom: 24px;
+}
+
+.ink-footer-nav li a {
+  color: #c9c7c5;
+  font-size: 0.98rem;
+  font-weight: 600;
+  padding: 6px 14px;
+  border-radius: 4px;
+}
+
+.ink-footer-nav li a:hover {
+  color: var(--ink-gold);
+  background: rgba(197, 160, 89, 0.1);
+}
+
+.ink-footer-subcopy {
+  font-size: 0.82rem;
+  color: var(--ink-smoke);
+}
+
+/* Subpage Layout */
+.ink-subpage-container {
+  padding: 60px 0 90px;
+  max-width: 860px;
+  margin: 0 auto;
+}
+
+.ink-subpage-card {
+  background: var(--ink-card-bg);
+  border: 1px solid var(--ink-border);
+  border-radius: var(--radius-ink);
+  padding: 42px;
+}
+
+.ink-subpage-header-title {
+  font-family: var(--font-serif);
+  font-size: 2.2rem;
+  font-weight: 800;
+  margin-bottom: 24px;
+  color: #ffffff;
+  border-bottom: 1px solid var(--ink-border);
+  padding-bottom: 16px;
+}
+
+.ink-subpage-body h2 {
+  font-family: var(--font-serif);
+  font-size: 1.35rem;
+  font-weight: 700;
+  margin: 28px 0 12px;
+  color: var(--ink-gold);
+}
+
+.ink-subpage-body p {
+  font-size: 0.96rem;
+  color: #b5b3af;
+  line-height: 1.85;
+  margin-bottom: 16px;
+}
+
+.ink-subpage-body ul {
+  list-style: disc;
+  padding-left: 24px;
+  margin-bottom: 22px;
+  color: #b5b3af;
+  font-size: 0.96rem;
+  line-height: 1.85;
+}
+
+/* Chronicles & Articles Grid */
+.chronicles-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 28px;
+  margin-top: 36px;
+}
+
+.chronicle-card-item {
+  background: var(--ink-card-bg);
+  border: 1px solid var(--ink-border);
+  border-radius: var(--radius-ink);
+  padding: 30px 26px;
+  display: flex;
+  flex-direction: column;
+  transition: all var(--transition-smooth);
+  position: relative;
+}
+
+.chronicle-card-item:hover {
+  border-color: var(--ink-gold);
+  transform: translateY(-3px);
+  box-shadow: 0 10px 28px rgba(0,0,0,0.5);
+}
+
+.chronicle-card-meta {
+  font-size: 0.82rem;
+  color: var(--ink-gold);
+  font-family: var(--font-serif);
+  margin-bottom: 12px;
+  letter-spacing: 1px;
+}
+
+.chronicle-card-title {
+  font-family: var(--font-serif);
+  font-size: 1.2rem;
+  font-weight: 700;
+  line-height: 1.48;
+  margin-bottom: 14px;
+}
+
+.chronicle-card-title a, .chronicle-card-title a:visited {
+  color: #ffffff !important;
+  text-decoration: none;
+}
+
+.chronicle-card-title a:hover {
+  color: var(--ink-gold) !important;
+}
+
+.chronicle-card-snippet {
+  font-size: 0.92rem;
+  color: #a8a6a2;
+  line-height: 1.75;
+  margin-bottom: 22px;
+  flex-grow: 1;
+}
+
+.chronicle-card-link {
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: var(--ink-cinnabar) !important;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  letter-spacing: 1px;
+}
+
+.article-ink-header {
+  margin-bottom: 30px;
+  border-bottom: 1px solid var(--ink-border);
+  padding-bottom: 20px;
+}
+
+.article-ink-header h1 {
+  font-family: var(--font-serif);
+  font-size: 2.2rem;
+  font-weight: 800;
+  line-height: 1.35;
+  margin-bottom: 16px;
+  color: #ffffff;
+}
+
+.article-ink-meta {
+  display: flex;
+  gap: 18px;
+  font-size: 0.85rem;
+  color: var(--ink-smoke);
+}
+
+.article-ink-body h2 {
+  font-family: var(--font-serif);
+  font-size: 1.45rem;
+  font-weight: 700;
+  margin: 34px 0 16px;
+  color: var(--ink-gold);
+  border-left: 3px solid var(--ink-cinnabar);
+  padding-left: 12px;
+}
+
+.article-ink-body h3 {
+  font-family: var(--font-serif);
+  font-size: 1.15rem;
+  font-weight: 700;
+  margin: 24px 0 12px;
+  color: #eae6df;
+}
+
+.article-ink-body p {
+  font-size: 0.98rem;
+  color: #cfccc8;
+  line-height: 1.88;
+  margin-bottom: 20px;
+}
+
+/* Responsive Rules */
+@media (max-width: 992px) {
+  .ink-grid-3, .media-ai-ink-grid {
+    grid-template-columns: 1fr;
+  }
+  .ink-pricing-grid {
+    grid-template-columns: 1fr;
+    max-width: 480px;
+    margin: 0 auto;
+  }
+  .ink-tier-card.top-choice {
+    transform: none;
+  }
+  .ink-parchment-stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .parchment-stat-item:nth-child(2)::after {
+    display: none;
+  }
+  .ink-reviews-grid {
+    grid-template-columns: 1fr;
+  }
+  .ink-nav-menu {
+    gap: 16px;
+  }
+  .ink-nav-menu li a {
+    font-size: 0.88rem;
+  }
+}
+
+@media (max-width: 768px) {
+  html {
+    scroll-padding-top: 108px;
+  }
+  .ink-pavilion-nav {
+    padding: 8px 0 10px;
+  }
+  .ink-nav-inner {
+    flex-wrap: wrap;
+    height: auto;
+    padding: 0;
+    row-gap: 8px;
+  }
+  .ink-logo-wrap {
+    order: 1;
+    flex: 0 0 auto;
+  }
+  .ink-logo-wrap svg {
+    width: 150px;
+    height: 38px;
+  }
+  .ink-nav-inner > div:last-child {
+    order: 2;
+    flex: 0 0 auto;
+    margin-left: auto;
+  }
+  .ink-pavilion-nav .btn-cinnabar {
+    width: auto !important;
+    min-height: 36px !important;
+    padding: 6px 14px !important;
+    font-size: 0.85rem !important;
+    border-radius: var(--radius-ink);
+  }
+  .ink-nav-menu {
+    order: 3;
+    display: flex !important;
+    align-items: center;
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    white-space: nowrap;
+    gap: 8px;
+    padding: 6px 2px 4px;
+    margin: 4px 0 0;
+    border-top: 1px solid rgba(197, 160, 89, 0.16);
+    scrollbar-width: none;
+  }
+  .ink-nav-menu::-webkit-scrollbar {
+    display: none;
+  }
+  .ink-nav-menu li {
+    flex-shrink: 0;
+  }
+  .ink-nav-menu li a {
+    display: inline-flex;
+    align-items: center;
+    padding: 6px 14px;
+    background: rgba(197, 160, 89, 0.05);
+    border: 1px solid rgba(197, 160, 89, 0.22);
+    border-radius: 18px;
+    font-size: 0.82rem;
+    font-family: var(--font-ink);
+    color: #c9c7c5;
+    text-decoration: none;
+    transition: all var(--transition-smooth);
+  }
+  .ink-nav-menu li a:hover,
+  .ink-nav-menu li a:active {
+    background: rgba(194, 58, 43, 0.16);
+    border-color: var(--ink-cinnabar);
+    color: #faf8f5 !important;
+    text-decoration: none;
+  }
+  .ink-hero-heading {
+    font-size: 2.2rem;
+  }
+  .chronicles-grid {
+    grid-template-columns: 1fr;
+  }
+  .ink-footer-nav {
+    flex-direction: column;
+    gap: 14px;
+  }
+  .ink-hero-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .ink-hero-actions .btn-cinnabar,
+  .ink-hero-actions .btn-ink-recommend,
+  .ink-tier-card .btn-cinnabar {
+    width: 100%;
+    min-height: 48px;
+    font-size: 1rem;
+  }
+  .ink-subpage-card {
+    padding: 24px;
+  }
+}
